@@ -1,0 +1,48 @@
+{
+  "name": "root/project",
+  "description": "A project",
+  "license": "MIT",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.1",
+    "docker-php/docker-php": "^1.24",
+    "php-http/httplug-bundle": "^1.7",
+    "symfony/dotenv": "^3.4",
+    "symfony/flex": "^1.0,!=1.0.58",
+    "symfony/framework-bundle": "^3.4",
+    "symfony/lts": "^3.0"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^3.4"
+  },
+  "conflict": {
+    "symfony/symfony": "*"
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd"
+    },
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "symfony-assets-install": "relative",
+    "symfony": {
+      "allow-contrib": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+parameters:
+    locale: 'en'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Symfony\Component\Console\Command\Command:
+            tags: ['console.command']
+            public: true
+
+    httplug.factory.docker:
+        class: App\Httplug\ClientFactory\CallableClientFactory
+        arguments:
+            $factory: [ Docker\DockerClient, 'createFromEnv' ]
+    Docker\Docker:
+        arguments:
+            $httpClient: '@httplug.client.docker'
+        public: true

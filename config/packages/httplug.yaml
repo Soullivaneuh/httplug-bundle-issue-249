@@ -1,0 +1,8 @@
+httplug:
+    plugins:
+        logger: ~
+    clients:
+        docker:
+            factory: 'httplug.factory.docker'
+    profiling:
+        captured_body_length: 1000
